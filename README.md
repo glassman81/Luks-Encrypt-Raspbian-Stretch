@@ -1,5 +1,5 @@
-# Luks-Encrypt-Ubuntu-19.10
-Scripts to luks encrypt the root partition of a 64-bit Ubuntu Server installation for Raspberry Pi 3/4.
+# Luks-Encrypt-Ubuntu-RPi-arm64
+Scripts to luks encrypt the root partition of a 64-bit Ubuntu 19.10 Server installation for Raspberry Pi 3/4.
 
 INSTALLATION
 
