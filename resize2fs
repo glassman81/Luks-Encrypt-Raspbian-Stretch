@@ -23,13 +23,14 @@ copy_exec /sbin/resize2fs /sbin
 copy_exec /sbin/fdisk /sbin
 copy_exec /sbin/dumpe2fs /sbin
 copy_exec /usr/bin/expect /sbin
+copy_exec /usr/bin/sha1sum /bin
 cp -R /usr/share/tcltk/* ${DESTDIR}/lib/
 
 # Raspberry Pi 1 and 2+3 use different kernels. Include the other.
 if ${COMPATIBILITY}; then
   case "${version}" in
-    *-v7+) other_version="$(echo ${version} |sed 's/-v7+$/+/')" ;;
-    *+) other_version="$(echo ${version} |sed 's/+$/-v7+/')" ;;
+    *-v8+) other_version="$(echo ${version} |sed 's/-v8+$/+/')" ;;
+    *+) other_version="$(echo ${version} |sed 's/+$/-v8+/')" ;;
     *)
       echo "Warning: kernel version doesn't end with +, ignoring."
       exit 0
