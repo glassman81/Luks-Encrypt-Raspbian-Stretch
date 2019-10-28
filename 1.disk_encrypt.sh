@@ -19,10 +19,14 @@ chmod +x /etc/initramfs-tools/hooks/resize2fs
 echo 'CRYPTSETUP=y' | tee --append /etc/cryptsetup-initramfs/conf-hook > /dev/null
 mkinitramfs -o /boot/firmware/initrd.img
 
-# The above was likely the first time mkinitramfs was invoked, so the following two
-# commands will overwrite the unwanted Ubuntu default backup
+# The above was likely the first time mkinitramfs was invoked, so the following
+# statement will overwrite the unwanted Ubuntu default backup if it exists
 INITRDBAK="$(ls /boot/initrd.img-*)"
-cp /boot/firmware/initrd.img $INITRDBAK
+if [ -z "$INITRDBAK" ]; then
+   cp /boot/firmware/initrd.img /boot/firmware/initrd.old
+else
+   cp /boot/firmware/initrd.img $INITRDBAK
+fi
 
 lsinitramfs /boot/firmware/initrd.img | grep -P "sbin/(cryptsetup|resize2fs|fdisk|dumpe2fs|expect|sha1sum)"
 lsinitramfs /boot/firmware/initrd.img | grep -P "bin/(sha1sum)"
