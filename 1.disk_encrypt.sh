@@ -23,7 +23,7 @@ mkinitramfs -o /boot/firmware/initrd.img
 # statement will overwrite the unwanted Ubuntu default backup if it exists
 INITRDBAK="$(ls /boot/initrd.img-*)"
 if [ -z "$INITRDBAK" ]; then
-   cp /boot/firmware/initrd.img /boot/firmware/initrd.old
+   cp /boot/firmware/initrd.img /boot/initrd.img.old
 else
    cp /boot/firmware/initrd.img $INITRDBAK
 fi
