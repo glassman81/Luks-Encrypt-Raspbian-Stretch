@@ -19,8 +19,9 @@ Now we're going to be dropped to the initramfs shell, this is normal. In this sh
 
 The following script copies all your data to the flash drive because Luks deletes everything when it's encrypting the partition. At this point, make sure that you have your flash drive PLUGGED IN. As a side note, when LUKS encrypts the root partition it will ask you to type YES (in uppercase) then the decryption password twice (watch out if you used CAPS LOCK to type the YES), so add a new strong password to your liking. Finally, LUKS will ask for the decryption password again so we can copy the data back from the flash drive to the root partition.
 
-/tmp/boot/install/2.disk_encrypt_initramfs.sh
-reboot -f
+`/tmp/boot/install/2.disk_encrypt_initramfs.sh`
+
+`reboot -f`
 
 We're dropped again to the initramfs, this is still normal
 
