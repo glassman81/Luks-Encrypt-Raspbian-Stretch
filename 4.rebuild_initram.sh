@@ -13,7 +13,7 @@ lsinitramfs /boot/firmware/initrd.img | grep -P "bin/(sha1sum)"
 # As before, we're overwriting the default backup location of should it exist
 INITRDBAK="$(ls /boot/initrd.img-*)"
 if [ -z "$INITRDBAK" ]; then
-   cp /boot/firmware/initrd.img /boot/firmware/initrd.old
+   cp /boot/firmware/initrd.img /boot/initrd.img.old
 else
    cp /boot/firmware/initrd.img $INITRDBAK
 fi
