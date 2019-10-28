@@ -39,4 +39,4 @@ Open a terminal window and execute the following command. At this point all the 
 
 `sudo bash /boot/firmware/install/4.rebuild_initram.sh`
 
-From now on, you are now prompted for a password at boot.
+From now on, you are prompted for a password at boot.
